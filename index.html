@@ -1,0 +1,114 @@
+<header>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+        <script src="app.js"></script>
+</header>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper" style="padding-left:5%;padding-right:5%;">
+        <a href="http://rbirm.us" class="brand-logo">rbirm.us</a>
+        <ul class="right hide-on-med-and-down">
+          <li class="active"><a href="/pool"">Pool Tracker</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+<div ng-app="app">
+  <div id="app" ng-controller="swim">
+        <div style="padding-left:5%;padding-right:5%;"><h2 class="header">Pool Tracker</h2><p>Understand your pool with data; By <a href="http://rbirm.us">rbirm.us</a><br></div>
+<div class="parallax-container" style = "height:200px;">
+      <div class="parallax" ><img src="pool.jpg"></div>
+    </div>
+        <div class="row" style="padding-left:5%;padding-right:5%;padding-top:10px;">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="fac" class="validate" type="text" size="2" ng-model="fac" placeholder="FAC">
+                    <label for="fac">Free Avaliable Chlorine</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="tac" class="validate" type="text" size="2" ng-model="tac" placeholder="TAC">
+                    <label for="tac">Total Avaliable Chlorine</label>
+                </div>
+                <div class="input-field col s6">     
+                    <input id="ch" class="validate" type="text" size="2" ng-model="ch" placeholder="CH">
+                    <label for="ch">Calcium Hardness</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="ta" class="validate" type="text" size="2" ng-model="ta" placeholder="TA">
+                    <label for="ta">Total Alkilinity</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="ph" class="validate" type="text" size="2" ng-model="ph" placeholder="pH">
+                    <label for="ph">pH (Acidity)</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="cu" class="validate" type="text" size="2" ng-model="cu" placeholder="Cu">
+                    <label for="cu">Copper</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="fe" class="validate" type="text" size="2" ng-model="fe" placeholder="Fe">
+                    <label for="fe">Iron</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="tds" class="validate" type="text" size="2" ng-model="tds" placeholder="TDS">
+                    <label for="tds">Total Dissolved Solids</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="pho" class="validate" type="text" size="2" ng-model="pho" placeholder="PHO">
+                    <label for="pho">Phospates</label>
+                </div><div class="input-field col s6">
+                <input id="temp" class="validate" type="text" size="2" ng-model="temp" placeholder="Temp">
+                    <label for="temp">Temperature(&deg;F)</label>
+                </div></div>
+                <button class="btn waves-effect waves-light" ng-click="log_pool()">File</button>
+            </div>
+                
+        </form>
+<div style="padding-left:5%;padding-right:5%;">
+<ul class="collapsible"  data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header active">See Results</div>
+      <div class="collapsible-body">
+        <table class="bordered">
+            <thead><tr><td>Measurement</td><td>Comparison</td><td>Value</td></tr></thead>
+            <tbody>
+                <tr ng-repeat = "res in results">
+                    <td bgcolor="{{res.color}}">{{res.title}}</td><td bgcolor="{{res.color}}">{{res.text}}</td><td bgcolor="{{res.color}}">{{res.val}}</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header">Export Results</div>
+      <div class="collapsible-body">
+      <blockquote>
+      To log for long-term, <a href="PoolLogger.xlsx">download this (.xlsx) logger</a>, and copy these results in for each measurement.
+      </blockquote><br>
+        <table class="bordered">
+            <tbody>
+                <tr><td>{{today}}</td></tr>
+                <tr ng-repeat = "res in results">
+                    <td>{{res.val}}</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+
